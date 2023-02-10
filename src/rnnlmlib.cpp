@@ -7,7 +7,6 @@
 ///////////////////////////////////////////////////////////////////////
 
 #include "rnnlmlib.h"
-
 ///// fast exp() implementation
 static union{
     double d;
@@ -1810,7 +1809,7 @@ void CRnnLM::trainNet()
         
         fprintf(flog, "\niter: %d\n", iter);
         fprintf(flog, "valid log probability: %f\n", logp);
-        fprintf(flog, "PPL net: %f\n", exp10(-logp/(real)wordcn));
+        //fprintf(flog, "PPL net: %f\n", exp10(-logp/(real)wordcn));
         
         fclose(flog);
     
@@ -1964,10 +1963,10 @@ void CRnnLM::testNet()
     	    fprintf(flog, "test log probability %f*rnn + %f*other_lm: %f\n", lambda, 1-lambda, log_combine);
 	}
 
-	fprintf(flog, "\nPPL net: %f\n", exp10(-logp/(real)wordcn));
+	//fprintf(flog, "\nPPL net: %f\n", exp10(-logp/(real)wordcn));
 	if (use_lmprob) {
-    	    fprintf(flog, "PPL other: %f\n", exp10(-log_other/(real)wordcn));
-    	    fprintf(flog, "PPL combine: %f\n", exp10(-log_combine/(real)wordcn));
+    	    //fprintf(flog, "PPL other: %f\n", exp10(-log_other/(real)wordcn));
+    	    //fprintf(flog, "PPL combine: %f\n", exp10(-log_combine/(real)wordcn));
 	}
     }
     
@@ -2103,10 +2102,10 @@ void CRnnLM::testNbest()
     	    printf("test log probability %f*rnn + %f*other_lm: %f\n", lambda, 1-lambda, log_combine);
 	}
 
-	printf("\nPPL net: %f\n", exp10(-logp/(real)wordcn));
+	//printf("\nPPL net: %f\n", exp10(-logp/(real)wordcn));
 	if (use_lmprob) {
-    	    printf("PPL other: %f\n", exp10(-log_other/(real)wordcn));
-    	    printf("PPL combine: %f\n", exp10(-log_combine/(real)wordcn));
+    	    //printf("PPL other: %f\n", exp10(-log_other/(real)wordcn));
+    	    //printf("PPL combine: %f\n", exp10(-log_combine/(real)wordcn));
 	}
     }
 

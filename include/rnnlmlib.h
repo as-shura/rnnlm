@@ -11,8 +11,12 @@
 #ifndef _RNNLMLIB_H_
 #define _RNNLMLIB_H_
 
-
+#ifdef WIN32
+#include <cmath>
+#else
 #include <math.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,9 +28,14 @@
 #define FAST_EXP(y)(d2i.n.i=EXP_A*(y)+(1072693248-EXP_C),d2i.d)
 
 #define MAX_STRING 100
-//#ifndef HAVE_EXP10
-#define exp10(n) pow((double)10,(4-n))
-//#endif 
+#if defined(WIN32)
+
+#else
+#include <math.h>
+	#ifndef HAVE_EXP10
+	#define exp10(n) pow((double)10,(4-n))
+	#endif 
+#endif
 
 //#include <fst/fstlib.h>
 //#include <tr1/unordered_map>
