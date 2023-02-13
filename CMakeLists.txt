@@ -35,8 +35,8 @@ install(TARGETS rnnlmlib
 
 install(FILES ${HEADER} DESTINATION include)
 
-install(DIRECTORY include/
-        DESTINATION include/)
+install(DIRECTORY include
+        DESTINATION include)
         
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
